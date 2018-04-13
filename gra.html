@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pl">
 <head>
 
@@ -29,22 +29,31 @@
 		<article>
 			<div class= "board">
 
-				<div class= "color palette">
+				<div class= "color_palette">
 
-					<div class= "color" id="c0">czerwony</div>
-					<div class= "color" id="c1">żółty</div>
-					<div class= "color" id="c2">zielony</div>
-					<div class= "color" id="c3">niebieski</div>
-					<div class= "color" id="c4">brązowy</div>
-					<div class= "color" id="c5">fioletowy</div>
+					<div class= "color" id="c0"><img src="img/czerwony.png"></div>
+					<div class= "color" id="c1"><img src="img/fioletowy.png"></div>
+					<div class= "color" id="c2"><img src="img/niebieski.png"></div>
+					<div class= "color" id="c3"><img src="img/pomaranczowy.png"></div>
+					<div class= "color" id="c4"><img src="img/zielony.png"></div>
+					<div class= "color" id="c5"><img src="img/zolty.png"></div>
 
 				</div>
 
 				<div class= "choice">Wybierz kolory
 				</div>
 
-				<div class= "past-choices">Wcześniejsze strzały
-				</div>
+				
+					<div class= "past_choice" id="ch1">
+						<div class= "empty" id="e0" ></div>
+						<div class= "empty" id="e1" onclick="chooseColor(1)"></div>
+						<div class= "empty" id="e2"></div>
+						<div class= "empty" id="e3"></div>
+						<div style= "display: inline-block" id="go"><img src="img/go.png"></div>
+
+						
+					</div>
+				<div class= "past-choices">Wcześniejsze strzały</div>
 			</div>
 
 		</article>
