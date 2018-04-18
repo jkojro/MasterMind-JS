@@ -31,6 +31,70 @@ p
 	letter-spacing: 2px;
 }
 
+.board
+{
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.color_palette
+{
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 80px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.color
+{
+	width: 45px;
+	height: 45px;
+	display: inline-block;
+	margin: 6px;
+	#background-image: url("img/pusty.png");
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+
+	cursor: pointer;
+	filter: brightness(80%);
+	transition: all .3s ease-in-out;
+}
+
+.color:hover
+{
+	#border: 4px solid #e9b64a;
+	filter: brightness(100%);
+}
+
+.past_choice
+{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.empty
+{
+	width: 45px;
+	height: 45px;
+	display: inline-block;
+	margin: 6px;
+	background-image: url("img/pusty.png");
+
+
+	cursor: pointer;
+	filter: brightness(80%);
+	transition: all .3s ease-in-out;
+}
+
+.empty:hover
+{
+	#border: 4px solid #e9b64a;
+	filter: brightness(100%);
+}
+
 
 
 
