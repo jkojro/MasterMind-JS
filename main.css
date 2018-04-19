@@ -84,6 +84,16 @@ p
 	
 }
 
+.go
+{
+	display: inline-block;
+}
+
+.go:hover
+{
+	cursor: pointer;
+}
+
 .past_choice
 {
 	margin-top: 20px;
@@ -120,6 +130,21 @@ p
 	filter: brightness(100%);
 	transition: all .3s ease-in-out;
 	#border: 2px solid #e9b64a;
+}
+
+.choice
+{
+	display: none;
+}
+
+.actual_choice
+{
+	
+}
+
+.done_choice
+{
+	
 }
 
 
