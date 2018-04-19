@@ -10,6 +10,7 @@ var e1 = document.getElementById('e1');
 var e2 = document.getElementById('e2');
 var e3 = document.getElementById('e3');
 
+
 e0.addEventListener("click", function() {chooseColor(1, 0); });
 e1.addEventListener("click", function() {chooseColor(1, 1); });
 e2.addEventListener("click", function() {chooseColor(1, 2); });
@@ -29,8 +30,10 @@ c3.addEventListener("click", function() {chooseColor(0, 3); });
 c4.addEventListener("click", function() {chooseColor(0, 4); });
 c5.addEventListener("click", function() {chooseColor(0, 5); });
 
+
 //$('#c0').on("click", () => {  $('#c0').chooseColor(0);}
 //$(#c2).on("click", () => { function() chooseColor(2);}
+
 
 var colorActive = false;
 var holeActive = false;
@@ -57,4 +60,5 @@ function chooseColor(row, nr) {
 			//alert( image);
 		}
 	}
+
 }
