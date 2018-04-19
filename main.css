@@ -147,6 +147,11 @@ p
 	
 }
 
+.done_choice:hover
+{
+	cursor: default;
+}
+
 
 
 

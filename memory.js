@@ -56,6 +56,7 @@ $('#e53').on('click', function() {chooseColor(6, 53); });
 
 function go(nr) {
 	$('#ch'+nr).addClass('done_choice');
+	$('#ch'+nr).removeClass('actual_choice');
 	if (nr-1 > 0) 
 	{
 		$('#ch'+(nr-1)).addClass('actual_choice');
@@ -81,7 +82,7 @@ function chooseColor(row, nr) {
 		selectedColor = color_palette[nr];
 		
 		//alert( selectedColor);
-	} else
+	} else if ($('#ch'+row).hasClass("actual_choice"))
 	{
 		holeActive = true;
 		$('#e'+nr).toggleClass('emptyActive');
