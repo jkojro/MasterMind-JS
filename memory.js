@@ -13,6 +13,8 @@ $('#c3').on('click', function() { chooseColor(0, 3);});
 $('#c4').on('click', function() { chooseColor(0, 4);});
 $('#c5').on('click', function() { chooseColor(0, 5);});
 
+$('#go1').on('click', function (){ go(1); });
+
 $('#e0').on('click', function() {chooseColor(1, 0); });
 $('#e1').on('click', function() {chooseColor(1, 1); });
 $('#e2').on('click', function() {chooseColor(1, 2); });
@@ -34,16 +36,20 @@ function chooseColor(row, nr) {
 	if (row == 0)
 	{
 		colorActive = true;
+		$('#c'+nr).toggleClass('colorActive');
 		selectedColor = color_palette[nr];
 		
 		//alert( selectedColor);
 	} else if(row == 1)
 	{
 		holeActive = true;
+		$('#e'+nr).toggleClass('emptyActive');
+
 		if (colorActive == true && holeActive == true)
 		{
 			image = "url(img/"+selectedColor+")";
 			$('#e'+nr).css('background-image', image);
+			$('#e'+nr).removeClass('emptyActive');
 			//alert( image);
 		}
 	}
