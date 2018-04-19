@@ -57,12 +57,16 @@ $('#e53').on('click', function() {chooseColor(6, 53); });
 function go(nr) {
 	$('#ch'+nr).addClass('done_choice');
 	$('#ch'+nr).removeClass('actual_choice');
-	if (nr-1 > 0) 
+	if (nr-1 > 0) //do przedostatniego rzędu
 	{
 		$('#ch'+(nr-1)).addClass('actual_choice');
 		$('#ch'+(nr-1)).removeClass('choice');
+	} else //ostatni rząd
+	{
+		
 	}
-	
+	$('#go'+nr).css('display', 'none');
+	$('#score'+nr).css('display', 'inline-block');
 }
 
 
