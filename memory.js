@@ -5,7 +5,6 @@ var color_palette = ["czerwony.png", "fioletowy.png", "niebieski.png", "pomaranc
 
 //console.log(color_palette);
 
-
 $('#c0').on('click', function() { chooseColor(0, 0);});
 $('#c1').on('click', function() { chooseColor(0, 1);});
 $('#c2').on('click', function() { chooseColor(0, 2);});
@@ -61,10 +60,8 @@ function go(nr) {
 	{
 		$('#ch'+(nr-1)).addClass('actual_choice');
 		$('#ch'+(nr-1)).removeClass('choice');
-	} else //ostatni rząd
-	{
-		
-	}
+	} 
+
 	$('#go'+nr).css('display', 'none');
 	$('#score'+nr).css('display', 'inline-block');
 }
