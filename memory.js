@@ -70,12 +70,9 @@ function go(nr) {
 
 	$('#go'+nr).css('display', 'none');
 	$('#score'+nr).css('display', 'inline-block');
+	//document.getElementById("score"+nr).innerHTML = rowStatusrows[(nr-1)];
 
-	//let actualRow = rows[(nr-1)][0];
-
-	//alert(rows[5][54]);
-
-	//alert(rowStatus(actualRow));
+	alert("status= "+rowStatus(rows[nr-1]));
 
 	
 }
@@ -111,6 +108,7 @@ function chooseColor(row, nr) {
 			$('#e'+nr).removeClass('emptyActive');
 			rows[row-1][nr-((row-1)*10)] = selectedColor;
 			//alert("rows["+row-1+"]["+nr+"]= "+rows[row-1][nr]);
+
 		}
 		//alert(rows[row-1])
 	}
@@ -151,7 +149,7 @@ function rowStatus(row) {
 		whiteAndRed += Math.min(countColor(color_palette[j], row), countColor(color_palette[j], hiddenRow));
 	}
 	white = whiteAndRed - red;
-	alert("red = "+red+", white = "+white);
+	//alert("red = "+red+", white = "+white);
 	return [red, white];
 }
 
