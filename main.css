@@ -157,6 +157,10 @@ p
 	display: none;
 }
 
+.start
+{
+	cursor: pointer;
+}
 
 
 

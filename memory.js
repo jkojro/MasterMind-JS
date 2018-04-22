@@ -5,8 +5,6 @@ var color_palette = ["czerwony.png", "fioletowy.png", "niebieski.png", "pomaranc
 
 //console.log(color_palette);
 
-
-
 $('#c0').on('click', function() { chooseColor(0, 0);});
 $('#c1').on('click', function() { chooseColor(0, 1);});
 $('#c2').on('click', function() { chooseColor(0, 2);});
@@ -51,11 +49,17 @@ $('#e51').on('click', function() {chooseColor(6, 51); });
 $('#e52').on('click', function() {chooseColor(6, 52); });
 $('#e53').on('click', function() {chooseColor(6, 53); });
 
+$('.start').on('click', function() { start(); });
+
 
 //$('#c0').on("click", () => {  $('#c0').chooseColor(0);}
 //$(#c2).on("click", () => { function() chooseColor(2);}
 
+var rows = [[], [], [], [], [], []];
+
 function go(nr) {
+
+	rowStatus(rows[nr-1]);
 	$('#ch'+nr).addClass('done_choice');
 	$('#ch'+nr).removeClass('actual_choice');
 	if (nr-1 > 0) //do przedostatniego rzędu
@@ -66,6 +70,14 @@ function go(nr) {
 
 	$('#go'+nr).css('display', 'none');
 	$('#score'+nr).css('display', 'inline-block');
+
+	//let actualRow = rows[(nr-1)][0];
+
+	//alert(rows[5][54]);
+
+	//alert(rowStatus(actualRow));
+
+	
 }
 
 
@@ -75,10 +87,11 @@ var selectedColor = "pusty.png";
 var image = "url(img/"+selectedColor+")";
 
 
+
+
 function chooseColor(row, nr) {
 	//alert(nr);
-	setHiddenRow();
-
+	
 	if (row == 0)
 	{
 		colorActive = true;
@@ -96,19 +109,66 @@ function chooseColor(row, nr) {
 			image = "url(img/"+selectedColor+")";
 			$('#e'+nr).css('background-image', image);
 			$('#e'+nr).removeClass('emptyActive');
+			rows[row-1][nr-((row-1)*10)] = selectedColor;
+			//alert("rows["+row-1+"]["+nr+"]= "+rows[row-1][nr]);
 		}
+		//alert(rows[row-1])
 	}
 }
 
 
 
 function setHiddenRow() {
+	var hiddenRow = [];
 	for (i = 0; i<4; i++) 
 	{
-		var hiddenRow = [];
-
-		hiddenRow[i] = color_palette[Math.floor(Math.random() * 5)];
-		alert(hiddenRow);
-
+		hiddenRow.push(color_palette[Math.floor(Math.random() * 5)]);
+		
 	}
+	return hiddenRow;
+}
+;
+
+function rowStatus(row) {
+	var red = 0;
+	var white = 0;
+	var whiteAndRed = 0;
+	//var row = rowow;
+
+	for(i = 0; i < row.length; i++) 
+	{
+		//alert('hiddenRow[i]= '+hiddenRow[i]+' row[i]= '+row[i])
+		if (hiddenRow[i] === row[i]) 
+		{
+			red++;
+		}
+	}
+	//color_palette.forEach()
+
+	for (j = 0; j < color_palette.length; j++)
+	{
+		//alert(color_palette[j]+" w row = "+countColor(color_palette[j], row));
+		whiteAndRed += Math.min(countColor(color_palette[j], row), countColor(color_palette[j], hiddenRow));
+	}
+	white = whiteAndRed - red;
+	alert("red = "+red+", white = "+white);
+	return [red, white];
+}
+
+function countColor(color, row) {
+	var count = 0;
+	for(i = 0; i < row.length; i++)
+	{
+		if (row[i] === color)
+			{count++;}	
+	}
+	return count;
+}
+
+function start() {
+	$('.start').hide();
+	hiddenRow = setHiddenRow();
+	$('#ch6').addClass('actual_choice');
+	$('#ch6').removeClass('choice');
+	alert(hiddenRow);
 }
