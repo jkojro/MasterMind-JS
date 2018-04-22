@@ -5,6 +5,8 @@ var color_palette = ["czerwony.png", "fioletowy.png", "niebieski.png", "pomaranc
 
 //console.log(color_palette);
 
+
+
 $('#c0').on('click', function() { chooseColor(0, 0);});
 $('#c1').on('click', function() { chooseColor(0, 1);});
 $('#c2').on('click', function() { chooseColor(0, 2);});
