@@ -77,6 +77,7 @@ var image = "url(img/"+selectedColor+")";
 
 function chooseColor(row, nr) {
 	//alert(nr);
+	setHiddenRow();
 
 	if (row == 0)
 	{
@@ -96,5 +97,18 @@ function chooseColor(row, nr) {
 			$('#e'+nr).css('background-image', image);
 			$('#e'+nr).removeClass('emptyActive');
 		}
+	}
+}
+
+
+
+function setHiddenRow() {
+	for (i = 0; i<4; i++) 
+	{
+		var hiddenRow = [];
+
+		hiddenRow[i] = color_palette[Math.floor(Math.random() * 5)];
+		alert(hiddenRow);
+
 	}
 }
