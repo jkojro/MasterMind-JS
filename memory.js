@@ -59,7 +59,7 @@ var rows = [[], [], [], [], [], []];
 
 function go(nr) {
 
-	rowStatus(rows[nr-1]);
+	var stat = rowStatus(rows[nr-1]);
 	$('#ch'+nr).addClass('done_choice');
 	$('#ch'+nr).removeClass('actual_choice');
 	if (nr-1 > 0) //do przedostatniego rzędu
@@ -72,19 +72,15 @@ function go(nr) {
 	$('#score'+nr).css('display', 'inline-block');
 	//document.getElementById("score"+nr).innerHTML = rowStatusrows[(nr-1)];
 
-	alert("status= "+rowStatus(rows[nr-1]));
+	//alert("status= "+rowStatus(rows[nr-1]));
 
-	
+	setScore(nr, stat);
 }
-
-
+	
 var colorActive = false;
 var holeActive = false;
 var selectedColor = "pusty.png";
 var image = "url(img/"+selectedColor+")";
-
-
-
 
 function chooseColor(row, nr) {
 	//alert(nr);
@@ -108,7 +104,6 @@ function chooseColor(row, nr) {
 			$('#e'+nr).removeClass('emptyActive');
 			rows[row-1][nr-((row-1)*10)] = selectedColor;
 			//alert("rows["+row-1+"]["+nr+"]= "+rows[row-1][nr]);
-
 		}
 		//alert(rows[row-1])
 	}
@@ -120,12 +115,11 @@ function setHiddenRow() {
 	var hiddenRow = [];
 	for (i = 0; i<4; i++) 
 	{
-		hiddenRow.push(color_palette[Math.floor(Math.random() * 5)]);
-		
+		hiddenRow.push(color_palette[Math.floor(Math.random()*5)]);		
 	}
 	return hiddenRow;
 }
-;
+
 
 function rowStatus(row) {
 	var red = 0;
@@ -168,5 +162,26 @@ function start() {
 	hiddenRow = setHiddenRow();
 	$('#ch6').addClass('actual_choice');
 	$('#ch6').removeClass('choice');
-	alert(hiddenRow);
+	$('.choices').show();
+	//alert(hiddenRow);
+}
+
+function setScore(nr, stat) {
+	//rowStatus(rows[nr-1])[0];
+	var red = stat[0];
+	var white = stat[1];
+	var sum = red+white;
+
+	for(i=0; i<red; i++)
+	{
+		let ptNrI = (nr*10)+i+1;
+		$('#pt'+ptNrI).addClass('red_point');
+		$('#pt'+ptNrI).removeClass('point');
+	}
+	for(j=red; j<sum; j++)
+	{
+		let ptNrJ = (nr*10)+j+1;
+		$('#pt'+ptNrJ).addClass('white_point');
+		$('#pt'+ptNrJ).removeClass('point');
+	}
 }
