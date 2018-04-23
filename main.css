@@ -137,6 +137,11 @@ p
 	display: none;
 }
 
+.choices
+{
+	display: none;
+}
+
 .actual_choice
 {
 	
@@ -154,15 +159,51 @@ p
 
 .score
 {
+	width: 45px;
+	height: 45px;
+	margin-left: 22px;
+	margin-right: 23px;
+	margin-bottom: 6px;
 	display: none;
+	text-align: center;
 }
 
 .start
 {
+	width: 280px;
+	height: 100px;
 	cursor: pointer;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 70px;
+	padding-bottom: 15px;
+	border: 2px solid #209781;
+	border-radius: 30px;
 }
 
+.point
+{
+	float: left;
+	width: 22px;
+	height: 22px;
+	background-image: url("img/punkt_pusty.png");
+}
 
+.red_point
+{
+	float: left;
+	width: 22px;
+	height: 22px;
+	background-image: url("img/punkt_czerwony.png");
+}
+
+.white_point
+{
+	float: left;
+	width: 22px;
+	height: 22px;
+	background-image: url("img/punkt_bialy.png");
+}
 
 
 
